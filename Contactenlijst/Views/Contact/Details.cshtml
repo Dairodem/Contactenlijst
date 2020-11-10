@@ -1,0 +1,27 @@
+﻿@model ContactDetailViewModel
+
+@functions
+{
+    int CalculateAge(DateTime birthdate)
+    {
+        return DateTime.Now.Year- birthdate.Year;
+    }
+
+}
+<a class="btn btn-primary" asp-controller="contact" asp-action="Index">Terug</a>
+<strong>ID</strong>
+<p>@Model.Id</p>
+<strong>Naam</strong>
+<p>@Model.Name</p>
+<strong>Voornaam</strong>
+<p>@Model.Surname</p>
+<strong>Leeftijd</strong>
+<p>@CalculateAge(Model.BirthDate)</p>
+<strong>Email</strong>
+<p>@Model.Email</p>
+<strong>Telefoonnummer</strong>
+<p>@Model.TelNr</p>
+<strong>Adres</strong>
+<p>@Model.Address</p>
+<strong>Beschrijving</strong>
+<p>@Model.Annotation</p>

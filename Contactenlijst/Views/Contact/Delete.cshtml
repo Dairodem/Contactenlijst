@@ -1,0 +1,12 @@
+﻿@model ContactDeleteViewModel
+
+
+
+<p>Weet u zeker dat u <strong>@Model.Surname @Model.Name</strong>  wilt verwijderen uit de lijst?</p>
+
+<form asp-controller="contact" asp-action="ConfirmDelete" method="post" asp-route-id="@Model.Id">
+    <div>
+        <button class="btn btn-danger" type="submit">Verwijder</button>
+        <a class="btn btn-primary" asp-controller="contact" asp-action="Index">Cancel</a>
+    </div>
+</form>

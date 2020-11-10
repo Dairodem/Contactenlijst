@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ContactListViewModel>
+
+<h2>Contactenlijst</h2>
+
+
+@if (Model.ToList().Count < 1)
+{
+    <strong>Er zijn geen contacten om weer te geven</strong>
+}
+else
+{
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Voornaam</th>
+            <th>Naam</th>
+            <th>Telefoonnummer</th>
+        </tr>
+
+        @foreach (ContactListViewModel item in Model)
+        {
+    <tr>
+        <td class="dataRow" width="200px">
+            @item.Id
+        </td>
+        <td class="dataRow" width="200px">
+            @item.Surname
+        </td>
+        <td class="dataRow" width="200px">
+            @item.Name
+        </td>
+        <td class="dataRow" width="200px">
+            @item.Telnr
+        </td>
+        <td>
+            <a class="btn btn-primary" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id">Details</a>
+        </td>
+        <td>
+            <a class="btn btn-info" asp-controller="Contact" asp-action="Update" asp-route-id="@item.Id">Edit</a>
+        </td>
+        <td>
+            <a class="btn btn-danger" asp-controller="Contact" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+        }
+    </table>
+
+}

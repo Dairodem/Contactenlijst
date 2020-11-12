@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!--andere manier voor ribbon,
+    met injectie met ipv @@Environment.get... ; @@_environment.EnvironmentName-->
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment _environment
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,11 +18,6 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <div class="ribbon ribbon-top-right">
-                    <span>
-                        @Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
-                    </span>
-                </div>
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Contactenlijst</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +39,11 @@
             </div>
         </nav>
     </header>
+    <div class="ribbon ribbon-top-right">
+        <span>
+            @Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
+        </span>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

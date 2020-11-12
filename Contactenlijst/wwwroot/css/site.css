@@ -133,3 +133,9 @@ body {
         transform: rotate(45deg);
     }
 
+    .cover{
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: black;
+    }
+
